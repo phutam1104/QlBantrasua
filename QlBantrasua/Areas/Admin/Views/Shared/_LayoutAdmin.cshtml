@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    @Styles.Render("~/Asset/styleAdmin.css")
+    @Styles.Render("~/Asset/w3.css")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+
+
+<body>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display: none " id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large"
+                onclick="w3_close()">
+            <i class="fa-solid fa-caret-left"></i>
+        </button>
+        <a href="@Url.Action("Index","HomeAdmin")" class="w3-bar-item w3-button"><i class="fa-solid fa-house-user">&nbsp;Home Admin</i></a>
+        <a href="@Url.Action("Index","../Home")" class="w3-bar-item w3-button">Home</a>
+        <a href="@Url.Action("Create","HomeAdmin")" class="w3-bar-item w3-button">Them moi san pham</a>
+        <a href="@Url.Action("Index","Nguoidung")" class="w3-bar-item w3-button">Danh sach nguoi dung</a>
+        <a href="@Url.Action("Index","Loai")" class="w3-bar-item w3-button">Danh sach Loai sản phẩm</a>
+        <a href="@Url.Action("Index","PhanQuyen")" class="w3-bar-item w3-button">Danh sach Quyen</a>
+
+    </div>
+
+    <div id="main">
+
+        <div class="nav" style="position:absolute;top:0;width:100%">
+            <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+            <div class="dropdown">
+                <img src="~/HinhanhSP/anhAdmin.jpg" onclick="myFunction()" class="dropbtn" />
+                <div id="myDropdown" class="dropdown-content" style="">
+                    <a href="/User/DangXuat">ĐĂNG XUẤT</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/Asset/JSAdmin.js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Content/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,543 @@
+﻿body {
+    --def: #96B7C4;
+    --inv: #fabfc3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f9d4e4;
+}
+html {
+    font-size: 12px;
+    font-family: 'Playfair Display', serif;
+}
+
+div {
+    margin-bottom: 3rem;
+}
+
+    div:last-child {
+        margin-bottom: 0;
+    }
+
+header {
+    background-color: white;
+    margin: 0;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100px;
+}
+nav {
+    background-color: white;
+    margin: 0;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100px;
+}
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+.btn {
+    position: relative;
+    padding: 1.4rem 4.2rem;
+    padding-right: 3.1rem;
+    text-transform: uppercase;
+    transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    cursor: pointer;
+    user-select: none;
+    color: #603811;
+}
+
+
+    .btn:before, .btn:after {
+        content: '';
+        position: absolute;
+        transition: inherit;
+        z-index: -1;
+    }
+
+    .btn:hover {
+        color: var(--def);
+        transition-delay: .5s;
+    }
+
+        .btn:hover:before {
+            transition-delay: 0s;
+        }
+
+        .btn:hover:after {
+            background: var(--inv);
+            transition-delay: .35s;
+        }
+
+/* From Top */
+
+.from-top:before,
+.from-top:after{
+    left: 0;
+    height: 0;
+    width: 100%;
+}
+
+.from-top:before {
+    bottom: 0;
+    border: 1px solid var(--inv);
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.from-top:after {
+    top: 0;
+    height: 0;
+}
+
+.from-top:hover:before,
+.from-top:hover:after {
+    height: 100%;
+}
+
+/* From Left */
+
+.from-left:before,
+.from-left:after {
+    top: 0;
+    width: 0;
+    height: 100%;
+}
+
+.from-left:before {
+    right: 0;
+    border: 1px solid var(--inv);
+    border-left: 0;
+    border-right: 0;
+}
+
+.from-left:after {
+    left: 0;
+}
+
+.from-left:hover:before,
+.from-left:hover:after {
+    width: 100%;
+}
+
+/* From Right */
+
+.from-right:before,
+.from-right:after {
+    top: 0;
+    width: 0;
+    height: 100%;
+}
+
+.from-right:before {
+    left: 0;
+    border: 1px solid var(--inv);
+    border-left: 0;
+    border-right: 0;
+}
+
+.from-right:after {
+    right: 0;
+}
+
+.from-right:hover:before,
+.from-right:hover:after {
+    width: 100%;
+}
+
+/* From center */
+
+.from-center:before {
+    top:0;
+    left: 50%;
+    height: 100%;
+    width: 0;
+    border: 1px solid var(--inv);
+    border-left: 0;
+    border-right: 0;
+}
+
+.from-center:after {
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background: var(--inv);
+}
+
+.from-center:hover:before {
+    left: 0;
+    width: 100%;
+}
+
+.from-center:hover:after {
+    top: 0;
+    height: 100%;
+}
+
+/* From Bottom */
+
+.from-bottom:before,
+.from-bottom:after {
+    left: 0;
+    height: 0;
+    width: 100%;
+}
+
+.from-bottom:before {
+    top: 0;
+    border: 1px solid var(--inv);
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.from-bottom:after {
+    bottom: 0;
+    height: 0;
+}
+
+.from-bottom:hover:before,
+.from-bottom:hover:after {
+    height: 100%;
+}
+.giohang {
+    background-color: white;
+    border-style: none;
+    font-size: 20px;
+    color: palevioletred;
+}
+/** * Carousel.sass * @author: Dang Van Thanh * @github: https://github.com/dangvanthanh/carousel.sass * @description: A Simple Carousel Pure CSS Using Sass * @version: 1.0.0 */
+.carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__prev > label:nth-child(5), .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__next > label:nth-child(2), .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__prev > label:nth-child(1), .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__next > label:nth-child(3), .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__prev > label:nth-child(2), .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__next > label:nth-child(4), .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__prev > label:nth-child(3), .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__next > label:nth-child(5), .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__prev > label:nth-child(4), .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__next > label:nth-child(1) {
+    opacity: 1 !important;
+    z-index: 3;
+    margin-top:100px;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.carousel {
+    width: 1357px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+    .carousel > input[type="radio"] {
+        position: absolute;
+        left: 0;
+        opacity: 0;
+        top: 0;
+    }
+
+        .carousel > input[type="radio"]:checked ~ .carousel__items .carousel__item, .carousel > input[type="radio"]:checked ~ .carousel__prev > label, .carousel > input[type="radio"]:checked ~ .carousel__next > label {
+            opacity: 0;
+        }
+
+        .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__items .carousel__item:nth-child(1) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__nav > label:nth-child(1) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__items .carousel__item:nth-child(2) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__nav > label:nth-child(2) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__items .carousel__item:nth-child(3) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__nav > label:nth-child(3) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__items .carousel__item:nth-child(4) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__nav > label:nth-child(4) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__items .carousel__item:nth-child(5) {
+            opacity: 1;
+        }
+
+        .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__nav > label:nth-child(5) {
+            background: #ccc;
+            cursor: default;
+            pointer-events: none;
+        }
+
+.carousel__items {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+.carousel__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+}
+
+    .carousel__item img {
+        width: 100%;
+        vertical-align: middle;
+    }
+
+.carousel__prev > label, .carousel__next > label {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    opacity: 0;
+    z-index: 2;
+}
+
+    .carousel__prev > label:hover, .carousel__next > label:hover, .carousel__prev > label:focus, .carousel__next > label:focus {
+        opacity: 0.5 !important;
+    }
+
+    .carousel__prev > label:before, .carousel__next > label:before, .carousel__prev > label:after, .carousel__next > label:after {
+        content: "";
+        position: absolute;
+        width: inherit;
+        height: inherit;
+    }
+
+    .carousel__prev > label:before, .carousel__next > label:before {
+        background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%), linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+        width: 60%;
+        height: 60%;
+        top: 20%;
+    }
+
+.carousel__prev > label {
+    left: 2%;
+}
+
+    .carousel__prev > label:before {
+        left: 35%;
+        top: 20%;
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+    }
+
+.carousel__next > label {
+    right: 2%;
+}
+
+    .carousel__next > label:before {
+        left: 10%;
+        transform: rotate(315deg);
+        -webkit-transform: rotate(315deg);
+    }
+
+.carousel__nav {
+    position: absolute;
+    bottom: 3%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 3;
+}
+
+    .carousel__nav > label {
+        border: 1px solid #fff;
+        display: inline-block;
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 0 0.125%;
+        width: 20px;
+        height: 20px;
+    }
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 7));
+    }
+}
+
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 1357px;
+}
+
+    .slider::before, .slider::after {
+        background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        content: "";
+        height: 100px;
+        position: absolute;
+        width: 200px;
+        z-index: 3;
+    }
+
+    .slider::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+
+    .slider::before {
+        left: 0;
+        top: 0;
+    }
+
+    .slider .slide-track {
+        animation: scroll 40s linear infinite;
+        display: flex;
+        width: calc(250px * 14);
+    }
+
+    .slider .slide {
+        height: 100px;
+        width: 250px;
+    }
+@import "bourbon";
+@import "neat";
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    outline: none;
+}
+
+figure {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+}
+
+    figure:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+        figure:hover img {
+            transform: scale(1.25);
+        }
+
+        figure:hover figcaption {
+            bottom: 0;
+        }
+
+    figure h1 {
+        position: absolute;
+        top: 50px;
+        left: 20px;
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-size: 60px;
+        font-weight: 100;
+        line-height: 1;
+    }
+
+    figure img {
+        height: 100%;
+        transition: 0.25s;
+    }
+
+    figure figcaption {
+        position: absolute;
+        bottom: -33%;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 30px;
+        background-color: #fabfc3bd;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        color: #5f350d;
+        line-height: 1;
+        transition: 0.25s;
+    }
+
+        figure figcaption h3 {
+            margin: 0 0 20px;
+            padding: 0;
+        }
+
+        figure figcaption p {
+            font-size: 14px;
+            line-height: 1.75;
+        }
+ 

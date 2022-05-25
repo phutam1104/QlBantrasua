@@ -1,0 +1,25 @@
+﻿
+
+<div class="d-flex">
+    @foreach (var item in Model)
+    {
+        <figure class="image-block me-2">
+            <h1>@item.Loai.Tenloai</h1>
+            <img src="@Url.Content("~/HinhanhSP/" + item.Anhbia)" alt="" />
+            <figcaption>
+                <h3>
+                    @item.Tensp
+                </h3>
+                <p>Giá: @item.Giatien</p>
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp, @strURL = Request.Url.ToString() }))
+                {
+                    <input class="" type="submit" value="Mua hàng" id="bgnGioHang" />
+
+                }
+            </figcaption>
+        </figure>
+    }
+</div>  
+
+
+

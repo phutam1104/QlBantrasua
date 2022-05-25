@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/Asset/stye.css")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @*Link icon*@
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    @*Link font chu *@
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+          rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Indie+Flower&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+    @{
+        var u = Session["use"] as QlBantrasua.Models.Nguoidung;
+    }
+
+    @*Header*@
+    <header class="mt-0 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-0 mb-5 border-bottom ">
+        <a href="@Url.Action("Index", "Home")" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none ms-5">
+            <img src="~/HinhanhSP/logo1.jpg" class="d-block" alt="..." style="width:20%">
+        </a>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            @*<li><a style="font-family: 'Sofia'; font-size: 22px">dsad</a></li>*@
+            <li><a href="@Url.Action("Index", "Home")" class="nav-link link-secondary " style="font-family: 'Sofia'; font-size: 22px">Trang Chủ</a></li>
+            <li><a href="#" class="nav-link px-4 link-dark" style="font-family: 'Sofia'; font-size: 22px">Trà sữa</a></li>
+            <li><a href="#" class="nav-link px-4 link-dark" style="font-family: 'Sofia'; font-size: 22px">Trà</a></li>
+            <li><a href="#" class="nav-link px-4 link-dark" style="font-family: 'Sofia'; font-size: 22px">Khuyến Mãi</a></li>
+            @*<li><a href="#" class="nav-link px-4 link-dark display-6">Về chúng tôi</a></li>*@
+        </ul>
+        @*<div class="col-md-2 d-flex text-end">*@
+        @{
+            if (u != null)
+            {
+                <div class="col-sm-4 col-md-0">
+                    Xin chào : @u.Email
+                    &nbsp;
+                    @*@Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "User", new { style = "color:red" })*@
+                    <a style="color:red" href="/User/DangXuat"> ĐĂNG XUẤT</a>
+                    @Html.Action("GioHangPartial", "GioHang")
+
+                </div>
+            }
+            else
+            {
+    <div class="col-md-2 d-flex text-end">
+        <div class="btn from-top me-2 mt-5" onclick="location.href='@Url.Action("Dangnhap", "User")' "><b>ĐĂNG NHẬP</b></div>
+        <div class="btn from-left me-2 mt-5" onclick="location.href='@Url.Action("Dangky", "User")'"><b>ĐĂNG KÍ</b></div>
+
+        @*<button type="button" class="btn btn-outline-primary me-2 btn-sm" style="font-size: 8px" onclick="location.href='@Url.Action("Dangnhap", "User")'">Đăng Nhập</button>
+        <button type="button" class="btn btn-primary me-2 btn-sm" style="font-size: 8px" onclick="location.href='@Url.Action("Dangky", "User")'">Đăng kí</button>*@
+        @Html.Action("GioHangPartial", "GioHang")
+
+    </div>
+                @*<div class="col-sm-4 col-md-0">
+                        <a style="color:white" href="/User/Dangky"> Đăng ký</a>
+                        &nbsp;
+                        <a style="color:white" href="/User/Dangnhap"> Đăng nhập</a>
+                    </div>*@
+            }
+
+
+        }
+        @*<button type="button" class="btn btn-outline-primary me-2 btn-sm" style="font-size: 8px" onclick="location.href='@Url.Action("Dangnhap","User")'">Login</button>
+            <button type="button" class="btn btn-primary btn-sm" style="font-size: 8px" onclick="location.href='@Url.Action("Dangky","User")'">Sign-up</button>*@
+        @*<button type="button" class="btn btn-outline-primary me-2 display-7 btn-lg"><i class="fas fa-shopping-cart"></i></button>*@
+        @*@Html.Action("GioHangPartial", "GioHang", new { @class = "giohang" })*@
+        @*<button type="button" class="btn btn-outline-primary me-2 display-7 btn-lg" onclick="location.href='@Url.Action("GioHang","GioHang")'"><i class="fas fa-shopping-cart"></i>(@ViewBag.TongSoLuong)</button>*@
+        @*<button type="button" class="btn btn-outline-primary me-2 display-7 btn-lg" onclick="location.href='@Html.Action("GioHangPartial", "GioHang")'"></button>*@
+        @*@Html.Action("GioHangPartial", "GioHang")*@
+        @*</div>*@
+    </header>
+
+
+
+
+
+
+
+    <div class="">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Content/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
